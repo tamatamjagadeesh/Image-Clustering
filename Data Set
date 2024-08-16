@@ -1,0 +1,16 @@
+##Download the data set using this code
+
+
+  import tensorflow as tf
+
+# Load the CIFAR-10 dataset
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+
+# Combine training and test sets
+images = np.concatenate((x_train, x_test), axis=0)
+labels = np.concatenate((y_train, y_test), axis=0)
+
+# Normalize images to the range [0, 1]
+images = images.astype('float32') / 255.0
+
+print(f"Total images: {images.shape[0]}")
